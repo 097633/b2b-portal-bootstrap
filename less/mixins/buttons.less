@@ -1,0 +1,67 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+// Button sizes
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  line-height: @line-height;
+  border-radius: @border-radius;
+}
+
+// .button-gradient(@gradient-start; @gradient-stop) {
+//     background: -webkit-linear-gradient(@gradient-start, @gradient-stop) !important; /* For Safari 5.1 to 6.0 */
+//     background: -o-linear-gradient(@gradient-start, @gradient-stop) important; /* For Opera 11.1 to 12.0 */
+//     background: -moz-linear-gradient(@gradient-start, @gradient-stop) important; /* For Firefox 3.6 to 15 */
+//     background: linear-gradient(@gradient-start, @gradient-stop) important; /* Standard syntax */
+// }
+
+.button-arrow(@arrow-border-width; @arrow-bg-color; @arrow-color) {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: @arrow-border-width solid @arrow-bg-color;
+    border-bottom: @arrow-border-width solid @arrow-bg-color;
+    border-left: @arrow-border-width solid @arrow-color;
+}
